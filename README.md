@@ -3,6 +3,7 @@ Download data from https://osf.io/eakf2/ and extract to ```data/```
 ## Requirements
 
 Install cmdstanpy https://mc-stan.org/cmdstanpy/installation.html
+
 `pip install -r requirements.txt`
 
 Install Jax for the calibration and posterior field generation
