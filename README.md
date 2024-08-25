@@ -1,5 +1,5 @@
 ## Data
-Download data from - and extract to ```data/```
+Download data from https://osf.io/eakf2/ and extract to ```data/```
 ## Requirements
 
 Install cmdstanpy https://mc-stan.org/cmdstanpy/installation.html
