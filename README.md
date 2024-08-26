@@ -1,3 +1,5 @@
+# Probabilistic analysis of the spatial viscoelasticity in 3D cell culture using magnetic microrheometry
+
 ## Data
 Download data from https://osf.io/eakf2/ and extract to ```data/```
 ## Requirements
@@ -14,4 +16,4 @@ https://jax.readthedocs.io/en/latest/installation.html
 * ```spatial.ipynb``` samples all the posteriors
 * ```results.ipynb``` shows how the 
 * ```calibration.ipynb``` defines the calibration model
-* ```hier_s_warped.stan``` defines the spatial model
+* ```models/``` defines the spatial models
