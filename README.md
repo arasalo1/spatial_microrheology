@@ -1,4 +1,4 @@
-# Probabilistic analysis of the spatial viscoelasticity in 3D cell culture using magnetic microrheometry
+# Probabilistic analysis of spatial viscoelastic cues in 3D cell culture using magnetic microrheometry
 
 ## Data
 Download data from https://osf.io/eakf2/ and extract to ```data/```
