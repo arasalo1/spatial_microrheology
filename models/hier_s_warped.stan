@@ -172,7 +172,7 @@ parameters {
   // material level GP params
   real<lower=0> rho_g;
   real<lower=0> rho_phi;
-  real alpha_g;
+  real<lower=0> alpha_g;
   real alpha_phi;
 
   // material mean
@@ -222,8 +222,8 @@ transformed parameters {
   vector[N] amplitude_values;
 
 
-  vector<lower=0>[N_locations] alpha_g_locations = softplus(alpha_g+z_alpha_g*alpha_g_sigma)+1e-5;
-  vector<lower=0>[N_locations] alpha_phi_locations = softplus(alpha_phi+z_alpha_phi*alpha_phi_sigma)+1e-5;
+  vector[N_locations] alpha_g_locations = softplus(alpha_g+z_alpha_g*alpha_g_sigma)+1e-5;
+  vector[N_locations] alpha_phi_locations = softplus(alpha_phi+z_alpha_phi*alpha_phi_sigma)+1e-5;
 
   vector[N_locations] offset_g_locations = offset_g+offset_g_z*offset_g_std;
   vector[N_locations] offset_phi_locations = offset_phi+offset_phi_z*offset_phi_std;
@@ -272,12 +272,13 @@ model {
   rho_g ~ std_normal();
   rho_phi ~ std_normal();
   
-  alpha_g ~ std_normal();
+  alpha_g ~ student_t(3,0,20);
   alpha_phi ~ normal(0,0.5);
 
   offset_g ~ normal(50,15); // 30 10
-  offset_phi ~ normal(0,0.1);
-  offset_g_std ~ std_normal();
+  // offset_phi ~ student_t(3,0,4);
+  asin(inv_logit(offset_phi)) ~ normal(0,0.3);
+  offset_g_std ~ normal(0,5);
   offset_phi_std ~ std_normal();
   offset_g_z ~ std_normal();
   offset_phi_z ~ std_normal();
@@ -295,7 +296,7 @@ model {
   eta_g ~ std_normal();
   eta_phi ~ std_normal();
 
-  alpha_g_sigma ~ std_normal();
+  alpha_g_sigma ~ normal(0,5);
   alpha_phi_sigma ~ std_normal();
 
   rho_g_sigma ~ std_normal();
