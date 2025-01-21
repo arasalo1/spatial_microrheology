@@ -322,6 +322,7 @@ model {
                   idents,amplitude_values,
                   location_identifier,identifier,t,F_phi,
                   sigma_model);
+  target += offset_phi+log(1/(exp(offset_phi)+1))+log(1/(sqrt(2*exp(offset_phi)+1)));
 }
 
 generated quantities {
